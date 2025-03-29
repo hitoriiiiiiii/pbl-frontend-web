@@ -1,185 +1,129 @@
-/* General Portfolio Page Styling */
-.portfolio {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: "Arial", sans-serif;
-    color: #333;
-  }
-  
-  /* Header Section */
-  .portfolio-header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .portfolio-header h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #1650a1;
-    margin-bottom: 10px;
-  }
-  
-  .portfolio-header p {
-    font-size: 1.2rem;
-    color: #666;
-  }
-  
-  /* Summary Cards */
-  .portfolio-summary {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-  }
-  
-  .summary-card {
-    flex: 1;
-    padding: 20px;
-    margin: 0 10px;
-    background-color: #f5f7fa;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .summary-card h2 {
-    font-size: 1.4rem;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  .summary-card p {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .summary-card .positive {
-    color: #43a047;
-  }
-  
-  .summary-card .negative {
-    color: #e53935;
-  }
-  
-  /* Pie Chart Section */
-  .portfolio-chart {
-    margin-bottom: 40px;
-    text-align: center;
-  }
-  
-  .portfolio-chart h2 {
-    font-size: 1.8rem;
-    color: #1e88e5;
-    margin-bottom: 20px;
-  }
-  
-  .portfolio-chart canvas {
-    max-width: 400px;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Table Section */
-  .portfolio-table {
-    margin: 30px 0;
-  }
-  
-  .portfolio-table h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #1e88e5;
-    text-align: center;
-  }
-  
-  .portfolio-table table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .portfolio-table th, .portfolio-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .portfolio-table th {
-    background-color: #e3f2fd;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  .portfolio-table td {
-    color: #555;
-  }
-  
-  .portfolio-table tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .portfolio-table .positive {
-    color: #43a047;
-    font-weight: bold;
-  }
-  
-  .portfolio-table .negative {
-    color: #e53935;
-    font-weight: bold;
-  }
-  /* Portfolio Filters */
-/* Portfolio Filters */
+/* Portfolio Header */
+.portfolio-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #ddd;
+}
+
+.portfolio-header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.portfolio-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Summary Section */
+.portfolio-summary {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.summary-card {
+  flex: 1;
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.summary-card h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.summary-card p {
+  font-size: 1.5rem;
+  color: #4caf50;
+}
+
+.summary-card p.negative {
+  color: #e91e63;
+}
+
+/* Filters Section */
 .portfolio-filters {
-    text-align: center;
-    margin: 20px 0;
+  margin: 20px;
+  text-align: center;
+}
+
+.portfolio-filters h2 {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.portfolio-filters select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Chart Section */
+.portfolio-chart {
+  margin: 20px;
+  text-align: center;
+}
+
+.portfolio-chart h2 {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+/* Investment Breakdown Table */
+.portfolio-table {
+  margin: 20px;
+  overflow-x: auto;
+}
+
+.portfolio-table h2 {
+  font-size: 1.3rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.portfolio-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.portfolio-table th,
+.portfolio-table td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+}
+
+.portfolio-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.portfolio-table td.positive {
+  color: #4caf50;
+}
+
+.portfolio-table td.negative {
+  color: #e91e63;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .portfolio-summary {
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  .portfolio-filters h2 {
-    font-size: 1.2rem;
+
+  .summary-card {
     margin-bottom: 10px;
-    color: var(--primary-color);
   }
-  
-  .portfolio-filters select {
-    width: 250px;
-    height: 40px;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    background-color: var(--white-color);
-    color: var(--text-color);
-    font-size: 1rem;
-    padding: 5px 10px;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  .portfolio-filters select:focus {
-    border-color: var(--secondary-color); /* Highlighted border on focus */
-  }
-  
-  .portfolio-filters select option {
-    padding: 5px;
-  }
-  
-  /* Responsive Design */
-  @media screen and (max-width: 768px) {
-    .portfolio-summary {
-      flex-direction: column;
-      gap: 20px;
-    }
-  
-    .summary-card {
-      margin: 0 auto;
-      width: 100%;
-    }
-  
-    .portfolio-chart canvas {
-      max-width: 300px;
-    }
-  }
-  
+}

@@ -1,86 +1,149 @@
-/* Portfolio Transaction Page Styles */
-.portfolio-transaction {
-    padding: 40px 20px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    text-align: center;
+/* General Section Styling */
+.pricing-section {
+  padding: 80px 20px;
+  background-color: var(--background-light, #f4f5f7); /* Light background for contrast */
+  text-align: center;
+}
+
+.pricing-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--primary-text, #222); /* Darker primary text */
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.pricing-description {
+  font-size: 1.2rem;
+  color: var(--secondary-text, #555); /* Muted secondary text */
+  margin-bottom: 50px;
+}
+
+/* Pricing Cards Container */
+.pricing-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Pricing Card */
+.pricing-card {
+  background-color: #fff;
+  border: 2px solid var(--border-color, #e0e0e0);
+  border-radius: 15px;
+  padding: 30px 25px;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-color, #007bff);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card.popular {
+  border: 2px solid var(--primary-color, #007bff);
+  background: linear-gradient(145deg, #e3f2ff, #f6fbff);
+
+}
+
+/* Plan Titles and Prices */
+.plan-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-text, #333);
+  margin-bottom: 15px;
+}
+
+.plan-price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary-color, #007bff);
+  margin-bottom: 20px;
+}
+
+.plan-price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--secondary-text, #777);
+}
+
+/* Plan Features */
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 30px;
+  text-align: left;
+}
+
+.plan-features li {
+  font-size: 1rem;
+  color: var(--tertiary-text, #555);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.plan-features li:before {
+  content: "✔";
+  color: var(--primary-color, #007bff);
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+/* Button Styling */
+.btn-select {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--primary-color, #007bff);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-select:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pricing-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
   }
-  
-  .portfolio-transaction h1 {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 30px;
+
+  .pricing-card {
+    width: 90%;
   }
-  
-  /* Transaction Table Styles */
-  .transaction-table {
-    margin: 0 auto;
-    overflow-x: auto; /* Ensure responsiveness for smaller screens */
+}
+
+@media (max-width: 480px) {
+  .pricing-title {
+    font-size: 2.2rem;
   }
-  
-  .transaction-table table {
-    width: 100%;
-    max-width: 1200px;
-    border-collapse: collapse;
-    margin: 0 auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    background: #fff; /* White background for table */
-  }
-  
-  .transaction-table thead {
-    background: var(--primary-color);
-    color: var(--white-color);
-  }
-  
-  .transaction-table thead tr th {
-    text-align: left;
-    padding: 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  .transaction-table tbody tr {
-    border-bottom: 1px solid #ddd;
-    transition: background-color 0.3s;
-  }
-  
-  .transaction-table tbody tr:hover {
-    background-color: var(--hover-color); /* Subtle hover effect */
-  }
-  
-  .transaction-table tbody tr td {
-    padding: 15px;
-    text-align: left;
+
+  .pricing-description {
     font-size: 1rem;
-    color: var(--text-color);
   }
-  
-  /* Add ellipsis for long messages */
-  .transaction-table tbody tr td:nth-child(5) {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 300px; /* Limit message column width */
+
+  .btn-select {
+    font-size: 0.9rem;
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .transaction-table thead tr th,
-    .transaction-table tbody tr td {
-      font-size: 0.9rem;
-      padding: 10px;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .portfolio-transaction h1 {
-      font-size: 2rem;
-    }
-    .transaction-table tbody tr td:nth-child(5) {
-      max-width: 200px;
-    }
-  }
-  
+}
