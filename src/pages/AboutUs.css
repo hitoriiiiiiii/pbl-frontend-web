@@ -1,0 +1,90 @@
+.about-page {
+    font-family: "Arial", sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Project Introduction */
+  .project-intro {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white-color);
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .project-intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .project-intro p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Journey Section */
+  .journey {
+    background: var(--white-color);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .journey h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .journey-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .timeline-item {
+    display: flex;
+    flex-direction: column;
+    background: var(--background-color);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    animation: fadeInUp 0.8s ease;
+  }
+  
+  .timeline-week {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

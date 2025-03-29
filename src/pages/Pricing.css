@@ -1,0 +1,86 @@
+/* Portfolio Transaction Page Styles */
+.portfolio-transaction {
+    padding: 40px 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+  }
+  
+  .portfolio-transaction h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+  }
+  
+  /* Transaction Table Styles */
+  .transaction-table {
+    margin: 0 auto;
+    overflow-x: auto; /* Ensure responsiveness for smaller screens */
+  }
+  
+  .transaction-table table {
+    width: 100%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff; /* White background for table */
+  }
+  
+  .transaction-table thead {
+    background: var(--primary-color);
+    color: var(--white-color);
+  }
+  
+  .transaction-table thead tr th {
+    text-align: left;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .transaction-table tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+  }
+  
+  .transaction-table tbody tr:hover {
+    background-color: var(--hover-color); /* Subtle hover effect */
+  }
+  
+  .transaction-table tbody tr td {
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+  
+  /* Add ellipsis for long messages */
+  .transaction-table tbody tr td:nth-child(5) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px; /* Limit message column width */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .transaction-table thead tr th,
+    .transaction-table tbody tr td {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .portfolio-transaction h1 {
+      font-size: 2rem;
+    }
+    .transaction-table tbody tr td:nth-child(5) {
+      max-width: 200px;
+    }
+  }
+  
