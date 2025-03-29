@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { Pie } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import "./Portfolio.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -87,7 +82,9 @@ const Portfolio = () => {
       {/* Chart Section */}
       <section className="portfolio-chart">
         <h2>Portfolio Distribution</h2>
-        <Pie data={chartData} />
+        <div className="pie-chart-wrapper">
+          <Pie data={chartData} />
+        </div>
       </section>
 
       {/* Investment Breakdown Table */}

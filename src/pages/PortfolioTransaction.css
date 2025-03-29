@@ -1,69 +1,87 @@
 /* General Styling */
 .portfolio-transaction {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: "Arial", sans-serif;
-    color: #333;
-  }
-  
-  .portfolio-transaction h1 {
-    text-align: center;
-    font-size: 2.4rem;
-    color: #1e88e5;
-    margin-bottom: 30px;
-  }
-  
-  /* Transaction Table Styling */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+.portfolio-transaction h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #1e88e5;
+  margin-bottom: 30px;
+}
+
+/* Transaction Table Styling */
+.transaction-table table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.transaction-table th {
+  background-color: #e3f2fd;
+  font-weight: bold;
+  color: #333;
+}
+
+.transaction-table td {
+  color: #555;
+}
+
+.transaction-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.transaction-table .positive {
+  color: #43a047;
+  font-weight: bold;
+}
+
+.transaction-table .negative {
+  color: #e53935;
+  font-weight: bold;
+}
+
+/* Pie Chart Styling */
+.pie-chart-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pie-chart {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
   .transaction-table table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #f9f9f9;
+    font-size: 0.9rem;
   }
-  
+
   .transaction-table th,
   .transaction-table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+    padding: 10px;
   }
-  
-  .transaction-table th {
-    background-color: #e3f2fd;
-    font-weight: bold;
-    color: #333;
+
+  .pie-chart {
+    width: 250px;
+    height: 250px;
   }
-  
-  .transaction-table td {
-    color: #555;
-  }
-  
-  .transaction-table tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .transaction-table .positive {
-    color: #43a047;
-    font-weight: bold;
-  }
-  
-  .transaction-table .negative {
-    color: #e53935;
-    font-weight: bold;
-  }
-  
-  /* Responsive Design */
-  @media screen and (max-width: 768px) {
-    .transaction-table table {
-      font-size: 0.9rem;
-    }
-  
-    .transaction-table th,
-    .transaction-table td {
-      padding: 10px;
-    }
-  }
-  
+}
