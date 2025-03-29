@@ -1,12 +1,34 @@
-# React + Vite
+# PBL Frontend Web Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is part of the Project-Based Learning (PBL) initiative to create a robust **frontend web application** using modern development technologies. It emphasizes responsive design and interactive user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **User-Friendly Interface:** Simple and intuitive navigation for users.
+- **Responsive Design:** Adapts to both mobile and desktop screens.
+- **Interactive Components:** Includes dynamic widgets and animations.
+- **Scalability:** Well-organized code for easy extension.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technology Stack
+- **Frontend**:
+  - HTML5, CSS3, JavaScript (ES6+)
+  - Framework: React.js 
+  - State Management: Redux/Context API
+  - Styling: Tailwind CSS or Material-UI
+- **Build Tools**:
+  - Webpack, Babel
+- **Version Control**:
+  - Git & GitHub
+
+---
+
+## Installation
+To set up the project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/PrarthanaGade/pbl-frontend-web.git
