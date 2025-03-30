@@ -17,8 +17,8 @@
 }
 
 .portfolio-header p {
-  font-size: 1rem;
-  color: #555;
+  font-size: 1.5rem;
+  color: #2497a8;
 }
 
 /* Summary Section */
@@ -29,20 +29,21 @@
 }
 
 .summary-card {
-  text-align: center;
-  background: #f9f9f9;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+  
 }
 
 .summary-card h2 {
   font-size: 1.2rem;
-  color: #333;
+  color: #4caf50;
 }
 
 .summary-card p {
   font-size: 1.5rem;
-  color: #555;
+  color: #333;
 }
 
 .positive {
