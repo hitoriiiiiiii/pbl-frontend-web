@@ -1,10 +1,10 @@
 import express from "express";
-import { getTransactions, addTransaction } from "../controllers/transactionController.js";
-import { verifyToken } from "../middlewares/authMiddleware.js";
+import { getTransactionsByUser, addTransaction } from "../controllers/transactionController.js";
+import { verifyToken } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/", verifyToken, getTransactions);
+router.get("/", verifyToken, getTransactionsByUser);
 router.post("/", verifyToken, addTransaction);
 
 export default router;
