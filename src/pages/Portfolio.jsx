@@ -1,12 +1,28 @@
 import React, { useState } from "react";
-import { Pie } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie, Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+} from "chart.js";
 import "./Portfolio.css";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement
+);
 
 const Portfolio = () => {
-  // Mock data
   const investmentData = [
     { asset: "Apple Inc.", category: "Stock", investment: 5000, currentValue: 6500, roi: 30 },
     { asset: "Amazon", category: "Stock", investment: 3000, currentValue: 3300, roi: 10 },
@@ -18,29 +34,40 @@ const Portfolio = () => {
   const [filter, setFilter] = useState("All");
 
   const filteredData =
-    filter === "All"
-      ? investmentData
-      : investmentData.filter((item) => item.category === filter);
+    filter === "All" ? investmentData : investmentData.filter((item) => item.category === filter);
 
   const totalInvestment = filteredData.reduce((acc, curr) => acc + curr.investment, 0);
   const totalCurrentValue = filteredData.reduce((acc, curr) => acc + curr.currentValue, 0);
   const netROI = (((totalCurrentValue - totalInvestment) / totalInvestment) * 100).toFixed(2);
 
-  // Pie chart data
-  const chartData = {
+  const pieChartData = {
     labels: filteredData.map((item) => item.asset),
     datasets: [
       {
         label: "Portfolio Distribution",
         data: filteredData.map((item) => item.currentValue),
         backgroundColor: [
-          "#4caf50",
-          "#2196f3",
-          "#ff9800",
-          "#e91e63",
-          "#9c27b0",
+          "#60a5fa",
+          "#f472b6",
+          "#facc15",
+          "#34d399",
+          "#a78bfa",
         ],
-        hoverOffset: 4,
+        hoverOffset: 6,
+      },
+    ],
+  };
+
+  const lineChartData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+    datasets: [
+      {
+        label: "Portfolio Value",
+        data: [15000, 16500, 15800, 17200, totalCurrentValue],
+        borderColor: "#60a5fa",
+        backgroundColor: "rgba(96,165,250,0.2)",
+        tension: 0.4,
+        fill: true,
       },
     ],
   };
@@ -68,7 +95,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Filters Section */}
+      {/* Filters */}
       <section className="portfolio-filters">
         <h2>Filter by Category</h2>
         <select onChange={(e) => setFilter(e.target.value)} value={filter}>
@@ -79,15 +106,34 @@ const Portfolio = () => {
         </select>
       </section>
 
-      {/* Chart Section */}
-      <section className="portfolio-chart">
-        <h2>Portfolio Distribution</h2>
-        <div className="pie-chart-wrapper">
-          <Pie data={chartData} />
+      {/* Card Slider */}
+      <section className="portfolio-slider">
+        <h2>Your Assets</h2>
+        <div className="asset-slider">
+          {filteredData.map((item, idx) => (
+            <div className="asset-card" key={idx}>
+              <h3>{item.asset}</h3>
+              <p>{item.category}</p>
+              <p>Value: ${item.currentValue}</p>
+              <p className={item.roi >= 0 ? "positive" : "negative"}>{item.roi}% ROI</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Investment Breakdown Table */}
+      {/* Charts */}
+      <section className="portfolio-charts">
+        <div className="pie-chart">
+          <h2>Portfolio Distribution</h2>
+          <Pie data={pieChartData} />
+        </div>
+        <div className="line-chart">
+          <h2>Portfolio Growth</h2>
+          <Line data={lineChartData} />
+        </div>
+      </section>
+
+      {/* Table */}
       <section className="portfolio-table">
         <h2>Investment Breakdown</h2>
         <table>
@@ -102,20 +148,19 @@ const Portfolio = () => {
           </thead>
           <tbody>
             {filteredData.map((item, index) => (
-              <tr key={index}>
+              <tr key={index} title={`Profit: $${item.currentValue - item.investment}`}>
                 <td>{item.asset}</td>
                 <td>{item.category}</td>
                 <td>${item.investment}</td>
                 <td>${item.currentValue}</td>
-                <td className={item.roi >= 0 ? "positive" : "negative"}>
-                  {item.roi}%
-                </td>
+                <td className={item.roi >= 0 ? "positive" : "negative"}>{item.roi}%</td>
               </tr>
             ))}
           </tbody>
         </table>
       </section>
     </div>
+    
   );
 };
 

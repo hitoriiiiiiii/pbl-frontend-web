@@ -1,150 +1,104 @@
-/* General Section Styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 .pricing-section {
-  padding: 80px 20px;
-  background-color: var(--background-light, #f4f5f7); /* Light background for contrast */
+  font-family: 'Poppins', sans-serif;
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  padding: 60px 20px;
+  min-height: 100vh;
   text-align: center;
 }
 
-.pricing-title {
+.pricing-heading {
   font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--primary-text, #222); /* Darker primary text */
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-
-.pricing-description {
-  font-size: 1.2rem;
-  color: var(--secondary-text, #555); /* Muted secondary text */
+  color: #ffd700;
   margin-bottom: 50px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
 }
 
-/* Pricing Cards Container */
-.pricing-container {
+.pricing-cards {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
   flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: center;
+  gap: 30px;
 }
 
-/* Individual Pricing Card */
 .pricing-card {
-  background-color: #fff;
-  border: 2px solid var(--border-color, #e0e0e0);
-  border-radius: 15px;
+  background-color: #151515;
+  border: 2px solid #333;
+  border-radius: 16px;
   padding: 30px 25px;
-  width: 100%;
-  max-width: 340px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  width: 280px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pricing-card:hover {
   transform: translateY(-10px);
-  border-color: var(--primary-color, #007bff);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
 }
 
-.pricing-card.popular {
-  border: 2px solid var(--primary-color, #007bff);
-  background: linear-gradient(145deg, #e3f2ff, #f6fbff);
-  display:flex;
-
-}
-
-/* Plan Titles and Prices */
-.plan-name {
+.pricing-card h3 {
   font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--primary-text, #333);
+  color: #ffd700;
   margin-bottom: 15px;
 }
 
-.plan-price {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--primary-color, #007bff);
+.price {
+  font-size: 1.5rem;
+  color: #ff8800;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
-.plan-price span {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--secondary-text, #777);
-}
-
-/* Plan Features */
-.plan-features {
+.pricing-card ul {
   list-style: none;
   padding: 0;
-  margin: 20px 0 30px;
-  text-align: left;
+  margin-bottom: 25px;
 }
 
-.plan-features li {
-  font-size: 1rem;
-  color: var(--tertiary-text, #555);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+.pricing-card li {
+  margin: 10px 0;
+  font-size: 0.95rem;
+  color: #ccc;
+  position: relative;
+  padding-left: 20px;
 }
 
-.plan-features li:before {
+.pricing-card li::before {
   content: "✔";
-  color: var(--primary-color, #007bff);
-  margin-right: 12px;
-  font-size: 1.2rem;
+  color: #ffd700;
+  position: absolute;
+  left: 0;
 }
 
-/* Button Styling */
-.btn-select {
-  display: inline-block;
-  padding: 12px 25px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background-color: var(--primary-color, #007bff);
+.select-button {
+  background-color: #ffd700;
+  color: #111;
   border: none;
   border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
-.btn-select:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+.select-button:hover {
+  background-color: #ff8800;
+  box-shadow: 0 0 15px rgba(255, 136, 0, 0.4);
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
-  .pricing-container {
+  .pricing-cards {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
   }
 
   .pricing-card {
-    width: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  .pricing-title {
-    font-size: 2.2rem;
-  }
-
-  .pricing-description {
-    font-size: 1rem;
-  }
-
-  .btn-select {
-    font-size: 0.9rem;
+    width: 100%;
+    max-width: 340px;
   }
 }

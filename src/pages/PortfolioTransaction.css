@@ -1,87 +1,76 @@
-/* General Styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 .portfolio-transaction {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  font-family: "Arial", sans-serif;
-  color: #333;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  padding: 50px 20px;
+  min-height: 100vh;
+  text-align: center;
 }
 
 .portfolio-transaction h1 {
-  text-align: center;
-  font-size: 2.4rem;
-  color: #1650a1;
-  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
-/* Transaction Table Styling */
-.transaction-table table {
+.transaction-table {
+  overflow-x: auto;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #151515;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+}
+
+table {
   width: 100%;
   border-collapse: collapse;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #f9f9f9;
+  color: #fff;
 }
 
-.transaction-table th,
-.transaction-table td {
-  padding: 12px 15px;
+th, td {
+  padding: 16px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #333;
+  font-size: 1rem;
 }
 
-.transaction-table th {
-  background-color: #e3f2fd;
-  font-weight: bold;
-  color: #333;
+th {
+  background-color: #222;
+  color: #ffd700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
 }
 
-.transaction-table td {
-  color: #555;
+tr:hover {
+  background-color: rgba(255, 215, 0, 0.05);
+  transition: background 0.3s ease;
 }
 
-.transaction-table tbody tr:hover {
-  background-color: #f1f1f1;
+td {
+  color: #ccc;
 }
 
-.transaction-table .positive {
-  color: #43a047;
-  font-weight: bold;
+td:first-child, th:first-child {
+  border-left: 4px solid #ffd700;
+  padding-left: 20px;
 }
 
-.transaction-table .negative {
-  color: #e53935;
-  font-weight: bold;
-}
-
-/* Pie Chart Styling */
-.pie-chart-container {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.pie-chart {
-  width: 100px;
-  height: 100px;
-  position: relative;
-}
-
-/* Responsive Design */
+/* Responsive */
 @media screen and (max-width: 768px) {
-  .transaction-table table {
+  .portfolio-transaction h1 {
+    font-size: 2rem;
+  }
+
+  th, td {
     font-size: 0.9rem;
+    padding: 12px;
   }
 
-  .transaction-table th,
-  .transaction-table td {
-    padding: 10px;
-  }
-
-  .pie-chart {
-    width: 250px;
-    height: 250px;
+  .transaction-table {
+    padding: 20px;
   }
 }
