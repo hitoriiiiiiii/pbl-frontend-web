@@ -1,0 +1,18 @@
+const mongoose = require('mongoose');
+
+const connectDB = async () => {
+  try {
+    // Replace with your own MongoDB URI if needed
+    await mongoose.connect('mongodb+srv://Prarthana:PBLprojects@pbl.s69bliq.mongodb.net/?retryWrites=true&w=majority&appName=PBL', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    console.log('✅ MongoDB connected successfully!');
+  } catch (error) {
+    console.error('❌ MongoDB connection failed:', error.message);
+    process.exit(1); // Exit process with failure
+  }
+};
+
+module.exports = connectDB;

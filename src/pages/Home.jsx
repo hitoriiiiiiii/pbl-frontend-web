@@ -6,7 +6,7 @@ const Home = () => {
     <div className="home">
       {/* Hero Section */}
       <header className="hero-section">
-        <h1>Welcome to FinAi</h1>
+        <h1>Welcome to marketFish</h1>
         <p>Your AI-powered financial companion for smarter investments.</p>
       </header>
 
@@ -31,8 +31,8 @@ const Home = () => {
           </div>
           <div className="feature-card">
             <i className="feature-icon">💬</i>
-            <h3>Chat with FinAi</h3>
-            <p>Ask FinAi for financial advice anytime, anywhere.</p>
+            <h3>Chat with marketFish</h3>
+            <p>Ask marketFish for financial advice anytime, anywhere.</p>
           </div>
         </div>
       </section>

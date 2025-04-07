@@ -17,11 +17,11 @@
 }
 
 .bot-image {
-  width: 180px;
+  width: 100px;
   height: auto;
   border-radius: 16px;
-  animation: bounce 1.2s infinite ease-in-out;
   margin-bottom: 10px;
+  animation: bounce 1.2s ease-in-out infinite, spin 3s linear infinite;
 }
 
 @keyframes bounce {
@@ -32,7 +32,10 @@
   100% { transform: translateY(0); }
 }
 
-
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
 
 .chat-header h1 {
   font-size: 2.2rem;
@@ -45,12 +48,11 @@
   font-size: 1rem;
 }
 
-/* Clean static chat box with soft blue background */
 .chat-box {
   width: 100%;
   max-width: 700px;
   height: 420px;
-  background-color: #0d346e; /* soft blue */
+  background-color: #0d346e;
   border-radius: 20px;
   padding: 20px;
   overflow-y: auto;
@@ -85,13 +87,14 @@
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Input Section */
 .chat-input-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   width: 100%;
   max-width: 700px;
+  flex-wrap: wrap;
 }
 
 .chat-input {
@@ -101,26 +104,44 @@
   border: none;
   font-size: 1rem;
   background-color: #838bdf;
-  color: black;
+  color: #000;
   outline: none;
 }
 
-.chat-send-button {
-  padding: 12px 20px;
-  background-color: #ffd700;
+.chat-send-button,
+.chat-mic-button,
+.chat-stop-button {
+  padding: 12px 18px;
+  font-weight: bold;
+  font-size: 1rem;
   border: none;
   border-radius: 10px;
-  font-weight: bold;
-  color: #111;
   cursor: pointer;
   transition: background 0.3s ease;
+  color: #111;
 }
 
+.chat-send-button {
+  background-color: #ffd700;
+}
 .chat-send-button:hover {
   background-color: #ff8800;
 }
 
-/* Responsive Design */
+.chat-mic-button {
+  background-color: #00c3ff;
+}
+.chat-mic-button:hover {
+  background-color: #0099cc;
+}
+
+.chat-stop-button {
+  background-color: #ff4d4d;
+}
+.chat-stop-button:hover {
+  background-color: #e60000;
+}
+
 @media (max-width: 768px) {
   .chat-box {
     height: 350px;
@@ -135,7 +156,13 @@
     gap: 10px;
   }
 
-  .chat-send-button {
+  .chat-input{
     width: 100%;
+  }
+
+  .chat-send-button,
+  .chat-mic-button,
+  .chat-stop-button {
+    width: 50%;
   }
 }

@@ -15,7 +15,7 @@ const App = () => {
       <header className="header">
         <div className="logo">
           <NavLink to="/" className="logo-link">
-            <span className="logo-highlight">Fin</span>Ai
+            <span className="logo-highlight">market</span>Fish
           </NavLink>
         </div>
         <nav className="nav">
@@ -41,7 +41,7 @@ const App = () => {
                 to="/finai"
                 className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
               >
-                FinAi
+                marketFish
               </NavLink>
             </li>
             <li>
