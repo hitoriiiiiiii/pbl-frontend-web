@@ -37,12 +37,14 @@
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     animation: cardHoverAnimation 0.3s ease;
+    border: white;
   }
   
   .stock-card .stock-icon {
     font-size: 3rem;
     margin-bottom: 15px;
     color: #ffd700;
+    border: #fff;
   }
   
   .stock-card h3 {

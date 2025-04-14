@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, NavLink, Outlet } from "react-router-dom";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
@@ -18,7 +18,7 @@ const App = () => {
         <Route path="login" element={<LoginPage />} />
 
         {/* Routes that are available without authentication */}
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout />} >
           <Route index element={<Home />} />
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="finai" element={<FinAiChat />} />
@@ -32,17 +32,28 @@ const App = () => {
   );
 };
 
-const Layout = () => (
-  <>
-    {/* Header Section */}
-    <header className="header">
-      <div className="logo">
-        <NavLink to="/" className="logo-link">
-          <span className="logo-highlight">market</span>Fish
-        </NavLink>
-      </div>
-      <nav className="nav">
-        <ul className="nav-list">
+const Layout = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <>
+      {/* Header Section */}
+      <header className="header">
+        <div className="logo">
+          <NavLink to="/" className="logo-link">
+            <span className="logo-highlight">market</span>Fish
+          </NavLink>
+        </div>
+        <div className="hamburger" onClick={toggleMenu}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul className={`nav-list ${isMenuOpen ? "show" : ""}`}>
           <li>
             <NavLink
               to="/"
@@ -114,19 +125,19 @@ const Layout = () => (
             </NavLink>
           </li>
         </ul>
-      </nav>
-    </header>
+      </header>
 
-    {/* Main Content Section */}
-    <main>
-      <Outlet />
-    </main>
+      {/* Main Content Section */}
+      <main>
+        <Outlet />
+      </main>
 
-    {/* Footer Section */}
-    <footer>
-      <p>Made with ❤️ by Prarthana, Ruturaj, and Uday Kiran for PBL Project</p>
-    </footer>
-  </>
-);
+      {/* Footer Section */}
+      <footer>
+        <p>Made with ❤️ by Prarthana, Ruturaj, and Uday Kiran for PBL Project</p>
+      </footer>
+    </>
+  );
+};
 
 export default App;
