@@ -1,129 +1,158 @@
 .buy-stocks-container {
-    padding: 30px;
-    background-color: #1e1e1e;
-    color: #fff;
-    text-align: center;
-    min-height: 100vh;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #ffd700;
-  }
-  
-  .stocks-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    margin-bottom: 40px;
-  }
-  
-  .stock-card {
-    background-color: #2d2d2d;
-    border-radius: 15px;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    text-align: center;
-    width: 100%;
-    max-width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1);
-  }
-  
-  .stock-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    animation: cardHoverAnimation 0.3s ease;
-    border: white;
-  }
-  
-  .stock-card .stock-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    color: #ffd700;
-    border: #fff;
-  }
-  
-  .stock-card h3 {
-    font-size: 1.5rem;
-    color: #fff;
-    margin: 10px 0;
-  }
-  
-  .stock-card p {
-    font-size: 1.2rem;
-    color: #bbb;
-  }
-  
-  .purchase-form {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 30px;
-    width: 100%;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .purchase-form h2 {
-    font-size: 1.8rem;
-    color: #ffd700;
-    margin-bottom: 20px;
-  }
-  
-  .purchase-form label {
-    font-size: 1.2rem;
-    color: #fff;
-    margin-right: 10px;
-  }
-  
-  .purchase-form input {
-    padding: 10px;
-    font-size: 1.2rem;
-    width: 50%;
-    border-radius: 8px;
-    border: none;
-    background-color: #444;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .purchase-form p {
-    font-size: 1.2rem;
-    color: #fff;
-    margin-top: 10px;
-  }
-  
-  .buy-button {
-    background-color: #28a745;
-    color: #fff;
-    padding: 12px 24px;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    border: none;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .buy-button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-  }
-  
-  @keyframes cardHoverAnimation {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
+  padding: 30px;
+  background-color: #0a0a0a;
+  color: #fff;
+  text-align: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #ffd700;
+}
+
+.stocks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin-bottom: 40px;
+}
+
+.stock-card {
+  background-color: #2d2d2d;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.stock-card:hover {
+  animation: shuffleEffect 0.5s ease-in-out;
+}
+
+.stock-card .stock-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #ffd700;
+  transition: color 0.3s ease;
+}
+
+.stock-card h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 10px 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.stock-card:hover h3 {
+  color: #ffd700;
+  transform: translateY(-5px);
+}
+
+.stock-card p {
+  font-size: 1.2rem;
+  color: #bbb;
+  transition: color 0.3s ease;
+}
+
+.stock-card:hover p {
+  color: #ffd700;
+}
+
+/* Focus effect on selected card */
+.stock-card:focus,
+.stock-card.selected {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 15px #ffd700;
+  border: 3px solid #ffd700;
+  animation: focusPulse 1.5s infinite;
+}
+
+/* Purchase form styles */
+.purchase-form {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.purchase-form h2 {
+  font-size: 1.8rem;
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.purchase-form label {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.purchase-form input {
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 50%;
+  border-radius: 8px;
+  border: none;
+  background-color: #444;
+  color: #fff;
+  text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.purchase-form input:focus {
+  background-color: #555;
+  box-shadow: 0 0 5px #ffd700;
+}
+
+.purchase-form p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.buy-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buy-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Keyframes for shuffle effect */
+@keyframes shuffleEffect {
+  0% { transform: translateX(-5px); }
+  25% { transform: translateX(5px); }
+  50% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Keyframes for focus pulse animation */
+@keyframes focusPulse {
+  0% { box-shadow: 0 0 10px #ffd700; }
+  50% { box-shadow: 0 0 20px #ffd700; }
+  100% { box-shadow: 0 0 10px #ffd700; }
+}

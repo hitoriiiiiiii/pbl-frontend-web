@@ -1,3 +1,4 @@
+/* CSS Variables */
 :root {
   --bg-dark: #121212;
   --bg-darker: #1a1a1d;
@@ -120,14 +121,12 @@ ul {
 
 .nav-link {
   width: 100%;
-  padding: 12px 20px;
+  padding: 12px 10px;
   text-align: left; /* Align text to the left for readability */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .nav-link:hover {
   background: rgba(255, 215, 0, 0.1);
-  color: var(--primary-gold);
 }
 
 /* Responsive Header */
@@ -140,18 +139,30 @@ ul {
   }
 
   .nav-list {
+    display: none;
     flex-direction: column;
     gap: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
-    margin-top: 10px;
-    display: none;
-    align-items: flex-start;
+    background: rgba(18, 18, 18, 0.95);
+    padding: 10px 0;
+    z-index: 999;
   }
 
   .nav-link {
-    width: 100%;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 20px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-list.show {
+    display: flex;
   }
 
   .logo .logo-link {
