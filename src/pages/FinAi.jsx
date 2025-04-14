@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import "./FinAi.css";
 import BotImage from "../assets/styles/Fish Ai logo.png";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMicrophoneLines, faStop, faPlay } from "@fortawesome/free-solid-svg-icons";
+
 // Check for SpeechRecognition compatibility
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -12,7 +15,9 @@ const FinAi = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isListening, setIsListening] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false); // Track if speech is playing
   const inputRef = useRef();
+  const speechSynthesisUtterance = useRef();
 
   useEffect(() => {
     if (!recognition) return;
@@ -22,7 +27,8 @@ const FinAi = () => {
 
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
-      setInput(transcript);
+      setInput(transcript); // Set the voice input into the text field
+      handleSendMessage(transcript); // Send voice input as message
     };
 
     recognition.onend = () => {
@@ -30,17 +36,16 @@ const FinAi = () => {
     };
   }, []);
 
-  const handleSendMessage = () => {
-    if (input.trim() === "") return;
+  const handleSendMessage = (voiceInput) => {
+    if (voiceInput.trim() === "") return;
 
-    const userMessage = { sender: "user", text: input };
-    const aiResponse = getAiResponse(input);
+    const userMessage = { sender: "user", text: voiceInput };
+    const aiResponse = getAiResponse(voiceInput);
 
     setMessages([...messages, userMessage, aiResponse]);
-    setInput("");
 
     if ("speechSynthesis" in window) {
-      speak(aiResponse.text);
+      speak(aiResponse.text); // Speak the AI's response
     }
   };
 
@@ -54,6 +59,17 @@ const FinAi = () => {
   const handleStopClick = () => {
     if (recognition && isListening) {
       recognition.stop();
+    }
+  };
+
+  const handleSpeechPlayPause = () => {
+    if (speechSynthesis.speaking) {
+      if (isSpeaking) {
+        speechSynthesis.pause();
+      } else {
+        speechSynthesis.resume();
+      }
+      setIsSpeaking(!isSpeaking);
     }
   };
 
@@ -83,6 +99,15 @@ const FinAi = () => {
     utterance.lang = "en-US";
     utterance.rate = 1;
     window.speechSynthesis.speak(utterance);
+    setIsSpeaking(true);
+    speechSynthesisUtterance.current = utterance;
+  };
+
+  // Handle 'Enter' key to send message
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSendMessage(input);
+    }
   };
 
   return (
@@ -114,15 +139,19 @@ const FinAi = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           className="chat-input"
+          onKeyPress={handleKeyPress} // Send message on Enter key press
         />
         <button onClick={handleSendMessage} className="chat-send-button">
-          🚀
+          Send
         </button>
         <button onClick={handleMicClick} className="chat-mic-button">
-          🎤
+          <FontAwesomeIcon icon={faMicrophoneLines} />
         </button>
         <button onClick={handleStopClick} className="chat-stop-button">
-          🛑
+          <FontAwesomeIcon icon={faStop} />
+        </button>
+        <button onClick={handleSpeechPlayPause} className="chat-play-pause-button">
+          {isSpeaking ? <FontAwesomeIcon icon={faStop} /> : <FontAwesomeIcon icon={faPlay} />}
         </button>
       </div>
     </div>

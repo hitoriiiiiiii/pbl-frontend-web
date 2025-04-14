@@ -151,12 +151,45 @@
     font-size: 2rem;
   }
 
-  .features-grid {
-    flex-direction: column;
-    align-items: center;
+  .features h2 {
+    font-size: 2rem; /* Adjust title font size for tablets */
   }
 
-  .feature-icon {
-    font-size: 2rem;
+  .features-grid {
+    gap: 1.5rem; /* Reduce gap on smaller screens */
+  }
+
+  .feature-card {
+    width: 240px; /* Reduce width on tablets */
+    padding: 1.5rem; /* Reduce padding for better fit */
+    box-sizing: 100px 100px;
+  }
+}
+
+/* Mobile-Specific Styles */
+@media screen and (max-width: 768px) {
+  .features h2 {
+    font-size: 1.8rem; /* Smaller font size on mobile */
+    margin-bottom: 1.5rem;
+  }
+
+  .features-grid {
+    flex-direction: column; /* Stack feature cards vertically */
+    align-items: center;
+    gap: 1rem; /* Reduced gap between cards */
+  }
+
+  .feature-card {
+    width: 90%; /* Make feature cards flexible for mobile screens */
+    padding: 1.2rem; /* Reduced padding for better spacing */
+    box-sizing: 100px 100px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.1rem; /* Adjust font size for titles */
+  }
+
+  .feature-card p {
+    font-size: 0.9rem; /* Smaller font size for descriptions */
   }
 }
