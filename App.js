@@ -4,7 +4,6 @@ import mongoose from "mongoose";
 
 // Importing routes
 import authRoutes from "./routes/authRoutes.js"; // Use default export
-import userRoutes from "./routes/userRoutes.js"; // Use default export
 import pricingRoutes from "./routes/pricingRoutes.js"; // Use default export
 import transactionRoutes from "./routes/transactionRoutes.js"; // Use default export
 import stockRoutes from "./routes/stockRoutes.js"; // Use default export
@@ -29,7 +28,6 @@ mongoose
 
 // API routes
 app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
 app.use("/api/pricing", pricingRoutes);
 app.use("/api/transactions", transactionRoutes);
 app.use("/api/stocks", stockRoutes);
