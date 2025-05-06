@@ -7,15 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "type": "module",
-    "start:backend": "node app.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.8.4",
+<<<<<<< HEAD:package.json
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "chart.js": "^4.4.8",
@@ -27,6 +26,8 @@
     "mongoose": "^8.13.2",
     "morgan": "^1.10.0",
     "ratelimit": "^0.0.4",
+=======
+>>>>>>> e27324896ef73507f195d8d257396c421c94efd3:frontend/package.json
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.0.0",

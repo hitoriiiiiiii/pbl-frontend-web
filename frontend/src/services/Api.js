@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Base URL of your backend (adjust if needed)
 const API = axios.create({
-  baseURL: "http://localhost:5174/api", // Replace with your backend's base URL (e.g., '/api')
+  baseURL: "http://localhost:5173/api", // Replace with your backend's base URL (e.g., '/api')
 });
 
 // Register a new user
