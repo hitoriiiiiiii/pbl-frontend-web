@@ -42,3 +42,7 @@ frontend/.vercel/
 
 # Coverage
 coverage/
+
+# Prevent environment files from being tracked
+.env
+.env.*

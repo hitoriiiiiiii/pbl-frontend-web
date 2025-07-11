@@ -1,5 +1,7 @@
 import React from 'react';
 import './Pricing.css';
+import { createPaymentOrder } from "../Api";
+// ✅ relative path to src/api.js
 
 const plans = [
   {
@@ -19,6 +21,29 @@ const plans = [
   },
 ];
 
+const handleSelectPlan = async (planName) => {
+  try {
+    const res = await createPaymentOrder(planName);
+    const data = res.data;
+
+    if (data.success) {
+      const script = document.createElement("script");
+      script.src = "https://sdk.cashfree.com/js/v3/cashfree.js";
+      script.async = true;
+      script.onload = () => {
+        const cashfree = new Cashfree(data.order.payment_session_id);
+        cashfree.redirect();
+      };
+      document.body.appendChild(script);
+    } else {
+      alert("Payment Error: " + data.error);
+    }
+  } catch (err) {
+    console.error("Payment Error:", err.response?.data || err.message);
+    alert("Something went wrong: " + (err.response?.data?.error || err.message));
+  }
+};
+
 const Pricing = () => {
   return (
     <section className="pricing-section">
@@ -33,7 +58,12 @@ const Pricing = () => {
                 <li key={i}>{feature}</li>
               ))}
             </ul>
-            <button className="select-button">Select</button>
+            <button
+              onClick={() => handleSelectPlan(plan.title)}
+              className="select-button"
+            >
+              Select
+            </button>
           </div>
         ))}
       </div>

@@ -12,6 +12,7 @@ import authRoutes from "./routes/authRoutes.js"; // Use default export
 import pricingRoutes from "./routes/pricingRoutes.js"; // Use default export
 import transactionRoutes from "./routes/transactionRoutes.js"; // Use default export
 import stockRoutes from "./routes/stockRoutes.js"; // Use default export
+import paymentRoutes from "./routes/paymentRoutes.js";
 
 // Configure environment variables
 dotenv.config();
@@ -74,6 +75,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/pricing", pricingRoutes);
 app.use("/api/transactions", transactionRoutes);
 app.use("/api/stocks", stockRoutes);
+app.use("/api/payment", paymentRoutes);
 
 // Input validation middleware for chat
 const validateChatInput = (req, res, next) => {
